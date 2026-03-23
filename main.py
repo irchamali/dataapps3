@@ -99,7 +99,8 @@ st.markdown('---')
 st.subheader('🔍 Analisis distribusi fitur')
 
 import matplotlib.pyplot as plt
-fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+fig, axs = plt.subplots(2, 2, figsize=(10, 6))
+fig.tight_layout(pad=5.0)
 
 for ax, feature in zip(axs.flatten(), ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']):
     for sp in penguins['species'].unique():
@@ -108,6 +109,6 @@ for ax, feature in zip(axs.flatten(), ['bill_length_mm', 'bill_depth_mm', 'flipp
     ax.set_title(feature)
     ax.set_xlabel(feature)
     ax.set_ylabel('Jumlah')
-    ax.legend()
+    ax.legend(fontsize='small')
 
 st.pyplot(fig)
